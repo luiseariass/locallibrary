@@ -27,6 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '*g!y64pxb1gp^q4k!m1y_0s_(pzl$m
 #DEBUG = True
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
+
 ALLOWED_HOSTS = ['https://nameless-woodland-01717.herokuapp.com', '127.0.0.1']
 LOGIN_REDIRECT_URL = '/'
 
