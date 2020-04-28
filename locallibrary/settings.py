@@ -21,9 +21,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '*g!y64pxb1gp^q4k!m1y_0s_(pzl$mq!ygh!v#4=1a#dgks98h'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '*g!y64pxb1gp^q4k!m1y_0s_(pzl$mq!ygh!v#4=1a#dgks98h')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1','https://nameless-woodland-01717.herokuapp.com/']
 LOGIN_REDIRECT_URL = '/'
