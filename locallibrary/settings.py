@@ -25,7 +25,7 @@ SECRET_KEY = '*g!y64pxb1gp^q4k!m1y_0s_(pzl$mq!ygh!v#4=1a#dgks98h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','https://nameless-woodland-01717.herokuapp.com/']
 LOGIN_REDIRECT_URL = '/'
 
 # Application definition
