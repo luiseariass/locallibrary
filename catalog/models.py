@@ -3,7 +3,10 @@ from django.urls import reverse # Used to generate URLs by reversing the URL pat
 import uuid # Required for unique book instances
 from django.contrib.auth.models import User
 from datetime import date
-import numpy
+from gdstorage.storage import GoogleDriveStorage
+
+# Define Google Drive Storage
+gd_storage = GoogleDriveStorage()
 
 # Create your models here.
 class Author(models.Model):
@@ -27,7 +30,7 @@ class Author(models.Model):
 
 class Genre(models.Model):
     #Model representing a book genre.
-    name = models.CharField(max_length=200, help_text='Enter a book genre (e.g. Science Fiction)')
+    name = models.CharField(max_length=200, help_text='nEter a book genre (e.g. Science Fiction)')
     def __str__(self):
     #String for representing the Model object.
         return (self.name)
@@ -45,6 +48,7 @@ class Book(models.Model):
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
     # Genre class has already been defined so we can specify the object above.
     genre = models.ManyToManyField(Genre, help_text='Select a genre for this book')
+    book_data = models.FileField(upload_to='books', storage=gd_storage,null=True)
     
     def __str__(self):
         """String for representing the Model object."""
